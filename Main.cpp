@@ -9,7 +9,7 @@ double TheFunction (double x)
     if(x >=  2 && x <= 5)   return x;
 }
 
-double TxtFile (string nameOfFile, double x, double endOfTheIterval, double step)
+void TxtFile (string nameOfFile, double x, double endOfTheIterval, double step)
 {
     ofstream fout(nameOfFile);
 
@@ -36,6 +36,5 @@ int main()
     double maxNumber = 6;
     double dx = 0.1;
 
-    TxtFile(nameOfFile, x, maxNumber, dx)
-
+    TxtFile(nameOfFile, x, maxNumber, dx);
 }
