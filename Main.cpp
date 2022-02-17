@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <fstream>
 using namespace std;
 
 double TheFunction (double x)
@@ -12,5 +13,17 @@ double TheFunction (double x)
 
 int main()
 {
+    ofstream fout("name.txt");
 
+    double x = -6;
+    double dx = 0.1;
+    double maxNumber = 6;
+
+    while(x < maxNumber)
+    {
+        fout << x;
+        fout << TheFunction(x);
+    }
+
+    fout.close();
 }
