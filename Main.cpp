@@ -20,8 +20,12 @@ int main()
 
     while(x < maxNumber)
     {
-        fout << x << endl;
-        fout << TheFunction(x) << endl;
+        if(x >= -5 && x <= 5)
+        {
+            fout << x << endl;
+            fout << TheFunction(x) << endl;
+        }
+
         x += dx;
     }
 
