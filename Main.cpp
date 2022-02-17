@@ -9,16 +9,11 @@ double TheFunction (double x)
     if(x >=  2 && x <= 5)   return x;
 }
 
-
-int main()
+void TxtFile (string nameOfFile, double x, double endOfTheIterval, double step)
 {
-    ofstream fout("name.txt");
+    ofstream fout(nameOfFile);
 
-    double x = -6;
-    double dx = 0.1;
-    double maxNumber = 6;
-
-    while(x < maxNumber)
+    while(x < endOfTheIterval)
     {
         if(x >= -5 && x <= 5)
         {
@@ -26,8 +21,20 @@ int main()
             fout << TheFunction(x) << endl;
         }
 
-        x += dx;
+        x += step;
     }
 
     fout.close();
+}
+
+
+
+int main()
+{
+    string nameOfFile = "Result.txt";
+    double x = -6;
+    double maxNumber = 6;
+    double dx = 0.1;
+
+    TxtFile(nameOfFile, x, maxNumber, dx);
 }
