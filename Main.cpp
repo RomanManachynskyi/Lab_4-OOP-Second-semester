@@ -4,21 +4,25 @@ using namespace std;
 
 double TheFunction (double x)
 {
-    if(x >= -5 && x < -2)   return -x;
-    if(x >= -2 && x <  2)   return 2;
-    if(x >=  2 && x <= 5)   return x;
+    if(x < -3)   return 3;
+    if(x > -3 && x <= 0)   return x;
+    if(x > 0 && x <  3)   return -x;
+    if(x > 3)   return 3;
 }
+
 
 void TxtFile (string nameOfFile, double x, double endOfTheIterval, double step)
 {
     ofstream fout(nameOfFile);
-
     while(x < endOfTheIterval)
     {
-        if(x >= -5 && x <= 5)
+        if(x >= -4 && x <= 4)
         {
-            fout << x << endl;
-            fout << TheFunction(x) << endl;
+            if(x != 3 || x != -3)
+            {
+                fout << x << endl;
+                fout << TheFunction(x) << endl;
+            }
         }
 
         x += step;
@@ -32,8 +36,8 @@ void TxtFile (string nameOfFile, double x, double endOfTheIterval, double step)
 int main()
 {
     string nameOfFile = "Result.txt";
-    double x = -6;
-    double maxNumber = 6;
+    double x = -4;
+    double maxNumber = 4;
     double dx = 0.1;
 
     TxtFile(nameOfFile, x, maxNumber, dx);
