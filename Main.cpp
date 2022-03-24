@@ -2,11 +2,17 @@
 #include <fstream>
 using namespace std;
 
+
+double ModuleNumb (double x)
+{
+    if(x < 0)   return -1*x;
+    else        return x;
+}
+       
 double TheFunction (double x)
 {
     if(x < -3)   return 3;
-    if(x > -3 && x <= 0)   return x;
-    if(x > 0 && x <  3)   return -x;
+    if(x > -3 && x < 3)   return 3 - ModuleNumb(x);
     if(x > 3)   return 3;
 }
 
@@ -16,14 +22,8 @@ void TxtFile (string nameOfFile, double x, double endOfTheIterval, double step)
     ofstream fout(nameOfFile);
     while(x < endOfTheIterval)
     {
-        if(x >= -4 && x <= 4)
-        {
-            if(x != 3 || x != -3)
-            {
-                fout << x << endl;
-                fout << TheFunction(x) << endl;
-            }
-        }
+        fout << x << endl;
+        fout << TheFunction(x) << endl;
 
         x += step;
     }
